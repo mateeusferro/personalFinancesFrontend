@@ -5,6 +5,7 @@ declare module "next-auth" {
     user: {
       token: string;
       refreshToken: string;
+      id: number;
     };
   }
 }
