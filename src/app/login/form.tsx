@@ -1,4 +1,4 @@
-'use client';
+"use client"
 import { signIn } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import React, { useState } from "react"
@@ -19,10 +19,11 @@ export default function RegisterForm() {
     })
     setEmail("")
     setPassword("")
-    if(!res?.error){
+    if (!res?.error) {
       router.push("/")
       router.refresh()
     }
+    setLoading(false)
   }
 
   return (
@@ -34,13 +35,17 @@ export default function RegisterForm() {
         className="border border-black"
         type="email"
         value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setEmail(e.target.value)
+        }
       />
       <input
         className="border border-black"
         type="password"
         value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setPassword(e.target.value)
+        }
       />
       <button
         type="submit"

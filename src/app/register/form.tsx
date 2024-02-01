@@ -41,19 +41,25 @@ export default function RegisterForm() {
         className="border border-black"
         type="text"
         value={name}
-        onChange={(e) => setName(e.target.value)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setName(e.target.value)
+        }
       />
       <input
         className="border border-black"
         type="email"
         value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setEmail(e.target.value)
+        }
       />
       <input
         className="border border-black"
         type="password"
         value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setPassword(e.target.value)
+        }
       />
       <button
         type="submit"
