@@ -1,17 +1,27 @@
 "use client"
 
-import { useSession } from "next-auth/react"
+import { signOut, useSession } from "next-auth/react"
 import Link from "next/link"
+import logout from "./api/logout/logout"
 import { useEffect } from "react"
 
 export default function Home() {
   const { data: session } = useSession()
-  useEffect(() => {
-    console.log(session && session?.user)
-  })
+
+  async function handleLogout() {
+    await logout(session?.user.token)
+    signOut()
+  }
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-32">
-      <Link href="/register">REGISTER</Link>
+      {session?.user && <span onClick={() => handleLogout()}>Logout</span>}
+      {!session?.user && (
+        <>
+          <Link href="/login">Login</Link>
+          <Link href="/register">REGISTER</Link>
+        </>
+      )}
     </main>
   )
 }
