@@ -29,7 +29,7 @@ const handler = NextAuth({
         )
         const user = await res.json()
 
-        if (user) {
+        if (user?.status === 'OK') {
           return user
         } else {
           return null
