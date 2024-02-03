@@ -1,7 +1,5 @@
-import ExpensesForm from "./form";
+import ExpensesForm from "./form"
 
 export default function ExpensesPage() {
-  return (
-    <ExpensesForm /> 
-  )
+  return <ExpensesForm />
 }
